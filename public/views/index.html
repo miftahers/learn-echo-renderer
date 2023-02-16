@@ -1,0 +1,145 @@
+{{define "index"}}
+<!--base colour : FFD6FF, E7C6FF, C8B6FF, B8C0FF, BBD0FF-->
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template & Echo Renderer</title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <style>
+    html {
+      background: linear-gradient(-45deg, #FFD6FF, #E7C6FF, #B8C0FF, #BBD0FF);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      height: 100vh;
+    }
+    
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .card {
+      margin: 20vh auto;
+      width: 190px;
+      height: 254px;
+      background: #F4F6FB;
+      border: 1px solid white;
+      box-shadow: 10px 10px 64px 0px rgba(71, 71, 71, 0.4);
+      -webkit-box-shadow: 10px 10px 64px 0px rgba(88, 88, 88, 0.4);
+      -moz-box-shadow: 10px 10px 64px 0px rgba(54, 54, 54, 0.4);
+    }
+
+    .form {
+      padding: 25px;
+    }
+
+    .card_header {
+      display: flex;
+      align-items: center;
+    }
+
+    .card svg {
+      color: #7878bd;
+      margin-bottom: 20px;
+      margin-right: 5px;
+    }
+
+    .form_heading {
+      padding-bottom: 20px;
+      font-size: 21px;
+      color: #7878bd;
+    }
+
+    .field {
+      padding-bottom: 10px;
+    }
+
+    .input {
+      border-radius: 5px;
+      background-color: #e9e9f7;
+      padding: 5px;
+      width: 100%;
+      color: #7a7ab3;
+      border: 1px solid #dadaf7
+    }
+
+    .input:focus-visible {
+      outline: 1px solid #aeaed6;
+    }
+
+    .input::placeholder {
+      color: #bcbcdf;
+    }
+
+    label {
+      color: #B2BAC8;
+      font-size: 14px;
+      display: block;
+      padding-bottom: 4px;
+    }
+
+    button {
+      background-color: #7878bd;
+      margin-top: 10px;
+      font-size: 14px;
+      padding: 7px 12px;
+      height: auto;
+      font-weight: 500;
+      color: white;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #5f5f9c;
+    }
+  </style>
+</head>
+<body>
+  <form class="form card" method="POST" action="/user/login"  onsubmit="return validateForm()">
+    <div class="card_header">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path fill="currentColor" d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z"></path>
+      </svg>
+      <h1 class="form_heading">Masuk</h1>
+    </div>
+    <div class="field">
+      <label for="username">Nama pengguna</label>
+      <input class="input" name="username" type="text" placeholder="Nama pengguna" id="username">
+    </div>
+    <div class="field">
+      <label for="password">Kata sandi</label>
+      <input class="input" name="password" type="password" placeholder="********" id="password">
+    </div>
+    <div class="field">
+      <button class="button" type="submit">Masuk</button>
+    </div>
+    <div class="field">
+      <a href="/user/registration-page" style="text-decoration: none; margin-left: 10px;font-size: 14px;">Daftar</a>
+    </div>
+  </form>
+
+
+
+  <script>
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+    
+      if (username == "" || password == "" || message == "") {
+        alert("Please fill in all required fields.");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
+{{end}}

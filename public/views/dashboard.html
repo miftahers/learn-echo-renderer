@@ -1,0 +1,102 @@
+{{define "dashboard"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>| {{.username}} Message Confirmation |</title>
+  <script type="text/javascript">
+    var title = document.title;
+    function scrollTitle() {
+      title = title.substr(1) + title.substr(0, 1);
+      document.title = title;
+      setTimeout("scrollTitle()", 250);
+    }
+    scrollTitle();
+  </script>
+  <style>
+    html {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      height: 100vh;
+    }
+    
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .card {
+      margin: 20vh auto;
+      width: 190px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      height: 254px;
+      background: #F4F6FB;
+      border: 1px solid white;
+      box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
+      -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+      -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+    }
+    .greeting_text {
+      text-align: center;
+      color: #7878bd;
+      font-size: 21px;
+    }
+    .card_header {
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    label {
+      color: #B2BAC8;
+      font-size: 14px;
+      display: block;
+      padding-bottom: 4px;
+    }
+
+    button {
+      background-color: #7878bd;
+      margin-top: 10px;
+      font-size: 14px;
+      padding: 7px 12px;
+      height: auto;
+      font-weight: 500;
+      color: white;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #5f5f9c;
+    }
+    .card_footer {
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="greeting card">
+    <div class="card_header">
+      <h1 class="greeting_text">Hello {{.username}}!</h1>
+    </div>
+    <div class="card_footer">
+      <a href="/"><button>Sign out</button></a>
+    </div>
+  </div>
+</body>
+</html>
+{{end}}
